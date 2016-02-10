@@ -14,8 +14,7 @@ namespace TShock_Hello
     //1.3.0.8
     [ApiVersion(1, 22)]
     public class HelloWorld : TerrariaPlugin
-    {
-
+    {                                                                                                                   
         public HelloWorld(Main game) : base(game) { }
 
         public override string Name { get { return "Hello World"; } }

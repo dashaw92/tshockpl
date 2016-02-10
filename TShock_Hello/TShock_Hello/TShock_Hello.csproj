@@ -39,10 +39,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
     <Reference Include="TerrariaServer">
-      <HintPath>..\..\..\..\..\Downloads\tshock_4.3.12\TerrariaServer.exe</HintPath>
+      <HintPath>..\..\..\..\Downloads\tshock_4.3.12\TerrariaServer.exe</HintPath>
     </Reference>
     <Reference Include="TShockAPI">
-      <HintPath>..\..\..\..\..\Downloads\tshock_4.3.12\ServerPlugins\TShockAPI.dll</HintPath>
+      <HintPath>..\..\..\..\Downloads\tshock_4.3.12\ServerPlugins\TShockAPI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
