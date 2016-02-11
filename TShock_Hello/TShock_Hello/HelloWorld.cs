@@ -17,19 +17,42 @@ namespace TShock_Hello
     {                                                                                                                   
         public HelloWorld(Main game) : base(game) { }
 
-        public override string Name { get { return "Hello World"; } }
+        public override string Name { get { return "Testing"; } }
         public override string Author { get { return "Daniel Shaw"; } }
         public override string Description { get { return base.Description; } }
         public override Version Version { get { return new Version(1, 0); } }
 
 
-        public override void Initialize() {
-            TShockAPI.GetDataHandlers.PlayerInfo += PlayerInfo;
+        public override void Initialize()
+        {
+			TShockAPI.Commands.ChatCommands.Add(new Command("", ListCommand, new string[] { "list" }));
         }
 
-        void PlayerInfo(object sender, TShockAPI.GetDataHandlers.PlayerInfoEventArgs args) {
-            Console.WriteLine(args.Name + " just called a PlayerInfo event.");
-            Console.WriteLine(args.Name + " has " + args.Hair + " hair!");
-        }
+		void ListCommand(CommandArgs args)
+		{
+			bool listID = false;
+			if (!(args.Parameters.Count < 1))
+			{
+				if (args.Parameters[0].Trim().ToLower().Equals("true"))
+				{
+					listID = true;
+				}
+			}
+			string result = "";
+			foreach (String s in TShock.Utils.GetPlayers(listID))
+			{
+				result = result + ", " + s;
+			}
+			Color temp = new Color();
+			temp.R = 0;
+			temp.G = 125;
+			temp.B = 0;
+			args.Player.SendMessage("Players online: " + result, temp);
+		}
+
+		void PlayerInfo(object sender, TShockAPI.GetDataHandlers.PlayerInfoEventArgs args)
+		{
+			
+		}
     }
 }
