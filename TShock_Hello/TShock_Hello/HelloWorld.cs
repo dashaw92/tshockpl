@@ -26,7 +26,14 @@ namespace TShock_Hello
         public override void Initialize()
         {
 			TShockAPI.Commands.ChatCommands.Add(new Command("", ListCommand, new string[] { "list" }));
+			TShockAPI.Commands.ChatCommands.Add(new Command("", ClearCommand, new string[] { "ci" }));
+			//TShockAPI.GetDataHandlers.ItemDrop += ItemDropEvent;
         }
+
+		void ClearCommand(CommandArgs args)
+		{
+			args.Player.SendData(PacketTypes.ConnectRequest);
+		}
 
 		void ListCommand(CommandArgs args)
 		{
